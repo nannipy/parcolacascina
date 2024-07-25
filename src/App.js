@@ -8,7 +8,7 @@ const products = [
   { name: 'Zucchine', price: 4, images: ['images/zucchine.jpg','images/zucchine11.jpg'], },
   { name: 'Peperoni', price: 5, images: ['images/peperoni.jpg', 'images/peperoni2.jpg','images/peperoni3.jpg'], },
   { name: 'Friggitelli', price: 4.5, images: ['images/friggitelli.jpg'],},
-  { name: 'Melanzane', price: 4, images: ['images/melanzana.jpg', 'images/melanzana2.jpg', 'images/melanzana3.jpg', 'images/melanzana4.jpg', 'images/melanzana5.jpg'] , },
+  { name: 'Melanzane', price: 4, images: ['images/melanzana_cassetta.jpg','images/melanzana_cassetta2.jpg','images/melanzana.jpg', 'images/melanzana5.jpg'] , },
   { name: 'Pomodori Ciliegino', price: 6.5, images: ['images/pomodori_ciliegino3.jpg', 'images/pomodori_ciliegini5.jpg'], },
   { name: 'Pomodori Datterino', price: 6.5, images: ['images/pomodori_datterino.jpg', ],  },
   { name: 'Pomodori Cuore Di Bue', price: 5.5, images: ['images/pomodori_cuordibue.jpg', ],  },
