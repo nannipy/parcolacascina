@@ -82,7 +82,7 @@ const OrderForm = () => {
 return (
   <form className="bg-white p-8 rounded-lg shadow-l " onSubmit={handleSubmit}>
       
-      <h2 className="text-2xl font-semibold mb-6">Ordina Prodotti</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-green-800">Ordina Prodotti</h2>
       <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="name">Nome</label>
           <input
@@ -145,7 +145,7 @@ return (
           <button
               type="button"
               onClick={handleAddProduct}
-              className="bg-green-500 text-white px-3 py-2 rounded appearance-none"
+              className="bg-amber-950 text-white px-3 py-2 rounded appearance-none"
           >
               Aggiungi Prodotto
           </button>
@@ -160,7 +160,7 @@ return (
                           type="button"
                           onClick={() => handleRemoveProduct(index)}
                           className="bg-red-500 text-white px-3 py-1 rounded"
-                      >
+                          >
                           Rimuovi
                       </button>
                   </li>
@@ -196,15 +196,15 @@ const Navbar = () => {
 const Footer = () => {
   return (
 
-    <footer className="bg-white text-yellow-400 p-4">
+    <footer className="bg-white text-green-800 p-4">
       
    
     
       <div className="container mx-auto flex justify-between items-center ">
         <div className='flex-2'>
-        <p className='font-bold'>Contatti</p>
+        <p className='font-bold '>Contatti</p>
         <p>Telefono: +39 342 662 3721 </p>
-        <p>Email:parcolacascina@gmail.com</p>
+        <p>Email:  parcolacascina@gmail.com</p>
         </div>
       </div>
       <div className="container mx-auto flex justify-between items-center flex-1">
@@ -245,7 +245,7 @@ const ParcoLaCascinaWebsite = () => {
                     <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
                     
                   </div>
-                  <p className="font-semibold mb-6 text-yellow-500">€{product.price.toFixed(2)}/Kg</p>
+                  <p  className="font-semibold mb-6 text-yellow-500">€{product.price.toFixed(2)}/Kg</p>
                 </div>
               </div>
             ))}
