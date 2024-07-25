@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,10 +21,8 @@ bg-greenp {
   background-color: #37624E;
 }
 @font-face {
-  font-family: 'font-plc';
-  src: url('/Users/giovannibattistapernazza/Documents/Giovanni/PLC/react/parco-la-cascina/public/fonts/font-plc.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'YourFontName';
+  src: url('fonts/font-plc.otf') format('opentype');
 }
 
 body {

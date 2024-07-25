@@ -3,6 +3,9 @@ import './index.css';
 import './App.css';
 import Carousel from './Carousel';
 import emailjs from 'emailjs-com';
+import './fonts/font-plc.otf';
+
+
 
 const products = [
   { name: 'Zucchine', price: 4, images: ['images/zucchine.jpg','images/zucchine11.jpg'], },
