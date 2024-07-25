@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Helmet } from "react-helmet";
 import './index.css';
 import './App.css';
 import Carousel from './Carousel';
 import emailjs from 'emailjs-com';
 import './fonts/font-plc.otf';
+
 
 
 
@@ -18,8 +20,6 @@ const products = [
   { name: 'Cetrioli', price: 4, images: ['images/cetrioli.jpg',],  },
   { name: 'Fagiolini', price: 4, images: ['images/fagiolini.jpg',], },
 ];
-
-
 const OrderForm = () => {
   const [orderStatus, setOrderStatus] = useState(null); // 'success', 'error', or null
   const [orderStatusMessage, setOrderStatusMessage] = useState('');
@@ -78,10 +78,12 @@ const OrderForm = () => {
         });
 };
 
-
 return (
   <form className="bg-white p-8 rounded-lg shadow-l " onSubmit={handleSubmit}>
-      
+      <Helmet>
+        <title>Ordina Prodotti - Parco La Cascina</title>
+        <meta name="description" content="Ordina prodotti freschi come Zucchine, Peperoni, Melanzane e altro da Parco La Cascina. Compila il modulo per inviare il tuo ordine." />
+      </Helmet>
       <h2 className="text-2xl font-semibold mb-6 text-green-800">Ordina Prodotti</h2>
       <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="name">Nome</label>
@@ -145,7 +147,7 @@ return (
           <button
               type="button"
               onClick={handleAddProduct}
-              className="bg-amber-950 text-white px-3 py-2 rounded appearance-none"
+              className="bg-green-800 text-white px-3 py-2 rounded appearance-none"
           >
               Aggiungi Prodotto
           </button>
@@ -177,6 +179,7 @@ return (
   </form>
 );
 };
+
 const Navbar = () => {
   return (
     <nav className="bg-white text-yellow-400 p-4 sticky top-0 z-10">
@@ -195,20 +198,17 @@ const Navbar = () => {
 
 const Footer = () => {
   return (
-
     <footer className="bg-white text-green-800 p-4">
-      
-   
-    
-      <div className="container mx-auto flex justify-between items-center ">
-        <div className='flex-2'>
-        <p className='font-bold '>Contatti</p>
-        <p>Telefono: +39 342 662 3721 </p>
-        <p>Email:  parcolacascina@gmail.com</p>
+      <div className="container mx-auto flex justify-between items-center flex-2">
+        <div>
+          <p className='font-bold '>Contatti</p>
+          <p>Telefono: +39 342 662 3721 </p>
+          <p>Email: parcolacascina@gmail.com</p>
         </div>
       </div>
       <div className="container mx-auto flex justify-between items-center flex-1">
         <p>©2024 Parco La Cascina. Tutti i diritti riservati.</p>
+        <p>Per maggiori informazioni, visita il nostro profilo su <a href="https://instagram.com/parcolacascina" target="_blank" rel="noopener noreferrer" className="text-green-800 hover:text-green-600">Instagram</a>.</p>
       </div>
     </footer>
   );
@@ -217,46 +217,60 @@ const Footer = () => {
 const heroimages = ["images/cascina2.jpg", "images/cascina.jpg", "images/cassoni_tramonto4.jpg"];
 
 const ParcoLaCascinaWebsite = () => {
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // simulate loading time
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="bg-green-900 min-h-screen">
       <Navbar />
       <div className="container mx-auto p-8">
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-6 text-yellow-500">La Nostra Storia</h2>
-          <p className="text-lg text-yellow-500 mb-8">
-            Parco La Cascina è stata fondata da tre fratelli appassionati di agricoltura.
-            La nostra missione è fornire prodotti freschi e di alta qualità ai nostri clienti.
-          </p>
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
-            <Carousel images={heroimages} />
+        {loading ? (
+          <div className="loading-skeleton">
+            <div className="skeleton-text"></div>
+            <div className="skeleton-image"></div>
           </div>
-        </section>
-
-        <section id="gallery">
-          <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Galleria Prodotti</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {products.map((product, index) => (
-              <div key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-lg">
-                <Carousel images={product.images} />
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
-                    
-                  </div>
-                  <p  className="font-semibold mb-6 text-yellow-500">€{product.price.toFixed(2)}/Kg</p>
-                </div>
+        ) : (
+          <>
+            <Helmet>
+              <title>Parco La Cascina - Prodotti Freschi e Naturali</title>
+              <meta name="description" content="Scopri i prodotti freschi e di alta qualità di Parco La Cascina. Ordina Zucchine, Peperoni, Melanzane e altro ancora direttamente dalla nostra fattoria." />
+            </Helmet>
+            <section className="mb-16">
+              <h2 className="text-3xl font-semibold mb-6 text-yellow-500">La Nostra Storia</h2>
+              <p className="text-lg text-yellow-500 mb-8">
+                Parco La Cascina è stata fondata da tre fratelli appassionati di agricoltura. La nostra missione è fornire prodotti freschi e di alta qualità ai nostri clienti. Produciamo una varietà di verdure fresche come zucchine, peperoni, melanzane e pomodori, coltivate con cura e passione.
+              </p>
+              <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
+                <Carousel images={heroimages} />
               </div>
-            ))}
-          </div>
-        </section>
-      </div>
+            </section>
 
+            <section id="gallery">
+              <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Galleria Prodotti</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {products.map((product, index) => (
+                  <div key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-lg">
+                    <Carousel images={product.images} />
+                    <div className="p-6">
+                      <div className="flex justify-between items-center mb-2">
+                        <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
+                      </div>
+                      <p className="font-semibold mb-6 text-yellow-500">€{product.price.toFixed(2)}/Kg</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </>
+        )}
+      </div>
       <div id="orders" className="container mx-auto p-8">
         <OrderForm products={products} />
       </div>
-
       <Footer />
     </div>
   );
