@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet";
 import './index.css';
 import './App.css';
-import Carousel from './Carousel';
 import emailjs from 'emailjs-com';
 import './fonts/font-plc.otf';
+import { FaInstagram, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import OptimizedCarousel from './Carousel';
 
 
 
@@ -198,21 +199,55 @@ const Navbar = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-green-800 p-4">
-      <div className="container mx-auto flex justify-between items-center flex-2">
-        <div>
-          <p className='font-bold '>Contatti</p>
-          <p>Telefono: +39 342 662 3721 </p>
-          <p>Email: parcolacascina@gmail.com</p>
+    <footer className="bg-green-800 text-yellow-100">
+      <div className="max-w-6xl mx-auto px-4 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold text-yellow-400">Parco La Cascina</h3>
+            <p className="text-sm">Prodotti freschi e naturali dal cuore della nostra terra alla tua tavola.</p>
+          </div>
+          
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-yellow-400">Contatti</h4>
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <FaPhoneAlt className="mr-2 text-yellow-400" />
+                <a href="tel:+393426623721" className="hover:text-yellow-400 transition-colors">+39 342 662 3721</a>
+              </li>
+              <li className="flex items-center">
+                <FaEnvelope className="mr-2 text-yellow-400" />
+                <a href="mailto:parcolacascina@gmail.com" className="hover:text-yellow-400 transition-colors">parcolacascina@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-yellow-400">Seguici</h4>
+            <a 
+              href="https://instagram.com/parcolacascina" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center text-yellow-100 hover:text-yellow-400 transition-colors"
+            >
+              <FaInstagram className="mr-2" />
+              @parcolacascina
+            </a>
+          </div>
         </div>
-      </div>
-      <div className="container mx-auto flex justify-between items-center flex-1">
-        <p>©2024 Parco La Cascina. Tutti i diritti riservati.</p>
-        <p>Per maggiori informazioni, visita il nostro profilo su <a href="https://instagram.com/parcolacascina" target="_blank" rel="noopener noreferrer" className="text-green-800 hover:text-green-600">Instagram</a>.</p>
+        
+        <div className="mt-8 pt-8 border-t border-green-700 text-sm text-center">
+          <p>&copy; {new Date().getFullYear()} Parco La Cascina. Tutti i diritti riservati.</p>
+          <p className="mt-2">
+            <a href="/privacy-policy" className="hover:text-yellow-400 transition-colors">Privacy Policy</a>
+            {' '}&bull;{' '}
+            <a href="/termini-e-condizioni" className="hover:text-yellow-400 transition-colors">Termini e Condizioni</a>
+          </p>
+        </div>
       </div>
     </footer>
   );
-}
+};
+
 
 const heroimages = ["images/cascina2.jpg", "images/cascina.jpg", "images/cassoni_tramonto4.jpg"];
 
@@ -220,57 +255,66 @@ const ParcoLaCascinaWebsite = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // simulate loading time
+    const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="bg-green-900 min-h-screen">
+      <Helmet>
+        <title>Parco La Cascina - Prodotti Freschi e Naturali | Zucchine, Peperoni, Melanzane</title>
+        <meta name="description" content="Scopri i prodotti freschi e di alta qualità di Parco La Cascina. Ordina Zucchine, Peperoni, Melanzane e altro ancora direttamente dalla nostra fattoria a conduzione familiare." />
+        <meta name="keywords" content="Parco La Cascina, prodotti freschi, zucchine, peperoni, melanzane, pomodori, agricoltura biologica, verdure fresche" />
+        <link rel="canonical" href="https://www.parcolacascina.it" />
+        <meta property="og:title" content="Parco La Cascina - Prodotti Freschi e Naturali" />
+        <meta property="og:description" content="Ordina prodotti freschi come Zucchine, Peperoni, Melanzane e altro da Parco La Cascina. Agricoltura sostenibile e di qualità." />
+        <meta property="og:image" content="https://www.parcolacascina.it/images/og-image.jpg" />
+        <meta property="og:url" content="https://www.parcolacascina.it" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <Navbar />
-      <div className="container mx-auto p-8">
+      <main className="container mx-auto p-8">
         {loading ? (
-          <div className="loading-skeleton">
+          <div className="loading-skeleton" aria-label="Caricamento in corso">
             <div className="skeleton-text"></div>
             <div className="skeleton-image"></div>
           </div>
         ) : (
           <>
-            <Helmet>
-              <title>Parco La Cascina - Prodotti Freschi e Naturali</title>
-              <meta name="description" content="Scopri i prodotti freschi e di alta qualità di Parco La Cascina. Ordina Zucchine, Peperoni, Melanzane e altro ancora direttamente dalla nostra fattoria." />
-            </Helmet>
             <section className="mb-16">
-              <h2 className="text-3xl font-semibold mb-6 text-yellow-500">La Nostra Storia</h2>
-              <p className="text-lg text-yellow-500 mb-8">
-                Parco La Cascina è stata fondata da tre fratelli appassionati di agricoltura. La nostra missione è fornire prodotti freschi e di alta qualità ai nostri clienti. Produciamo una varietà di verdure fresche come zucchine, peperoni, melanzane e pomodori, coltivate con cura e passione.
+              <h1 className="text-4xl font-semibold mb-6 text-yellow-500">Benvenuti a Parco La Cascina</h1>
+              <p className="text-2xl text-white mb-8">
+              Tre fratelli, un sogno verde : <br></br>
+              Un parco botanico dove la natura è protagonista! Coltiviamo ortaggi freschissimi nella nostra oasi verde
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
-                <Carousel images={heroimages} />
+                <OptimizedCarousel className="carousel"images={heroimages} />
               </div>
             </section>
 
             <section id="gallery">
-              <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Galleria Prodotti</h2>
+              <h2 className="text-3xl font-semibold mb-6 text-yellow-500">I Nostri Prodotti Freschi</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {products.map((product, index) => (
-                  <div key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-lg">
-                    <Carousel images={product.images} />
+                  <article key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-lg">
+                    <OptimizedCarousel images={product.images} />
                     <div className="p-6">
                       <div className="flex justify-between items-center mb-2">
                         <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
                       </div>
                       <p className="font-semibold mb-6 text-yellow-500">€{product.price.toFixed(2)}/Kg</p>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </section>
           </>
         )}
-      </div>
-      <div id="orders" className="container mx-auto p-8">
+      </main>
+      <section id="orders" className="container mx-auto p-8">
+        <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Ordina i Nostri Prodotti</h2>
         <OrderForm products={products} />
-      </div>
+      </section>
       <Footer />
     </div>
   );
