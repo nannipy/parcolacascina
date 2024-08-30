@@ -38,7 +38,7 @@ const Navbar = () => {
         </div>
 
         {/* Menu Links for Desktop */}
-        <ul className="hidden md:flex space-x-4">
+        <ul className="hidden md:flex space-x-4 text-lg">
           <li><Link to="/" className="hover:text-orange-300 transition-colors font-semibold text-yellow-500">Prodotti</Link></li>
           <li><Link to="/about" className="hover:text-orange-300 transition-colors font-semibold text-yellow-500">Chi Siamo</Link></li>
           <li><Link to="/contact" className="hover:text-orange-300 transition-colors font-semibold text-yellow-500">Contatti</Link></li>
@@ -47,10 +47,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <ul className="md:hidden mt-4 space-y-2">
-          <li><Link to="/" className="block text-yellow-500 hover:text-orange-300 transition-colors font-semibold">Prodotti</Link></li>
-          <li><Link to="/about" className="block text-yellow-500 hover:text-orange-300 transition-colors font-semibold">Chi Siamo</Link></li>
-          <li><Link to="/contact" className="block text-yellow-500 hover:text-orange-300 transition-colors font-semibold">Contatti</Link></li>
+        <ul className="md:hidden mt-8 space-y-2 text-xl ">
+          <li><Link to="/" className="block text-yellow-500 hover:text-orange-300 transition-colors font-semibold mt-3">Prodotti</Link></li>
+          <li><Link to="/about" className="block text-yellow-500 hover:text-orange-300 transition-colors font-semibold mt-3">Chi Siamo</Link></li>
+          <li><Link to="/contact" className="block text-yellow-500 hover:text-orange-300 transition-colors font-semibold mt-3">Contatti</Link></li>
         </ul>
       )}
     </nav>
