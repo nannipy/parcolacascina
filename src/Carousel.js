@@ -15,7 +15,7 @@ const Carousel = ({ images }) => {
 
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container rounded-lg">
       {images.map((image, index) => (
         <img
           key={index}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from "react-helmet";
 import './index.css';
 import './App.css';
@@ -6,6 +6,8 @@ import emailjs from 'emailjs-com';
 import './fonts/font-plc.otf';
 import { FaInstagram, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import OptimizedCarousel from './Carousel';
+import { motion } from 'framer-motion';
+
 
 
 
@@ -189,7 +191,7 @@ const Navbar = () => {
           <img src="logo.png" alt="Parco La Cascina Logo" className="h-16 mr-8" />
         </div>
         <ul className="flex space-x-4">
-          <li><a href="#gallery" className="hover:text-orange-300 transition-colors font-semibold mb-6 text-yellow-500">Galleria Prodotti</a></li>
+          <li><a href="#gallery" className="hover:text-orange-300 transition-colors font-semibold mb-6 text-yellow-500"> Prodotti</a></li>
           <li><a href="#orders" className="hover:text-orange-300 transition-colors font-semibold mb-6 text-yellow-500">Ordini</a></li>
         </ul>
       </div>
@@ -249,16 +251,109 @@ const Footer = () => {
 };
 
 
-const heroimages = ["images/cascina2.jpg", "images/cascina.jpg", "images/cassoni_tramonto4.jpg"];
+// const heroimages = ["images/cascina2.jpg", "images/cascina.jpg", "images/cassoni_tramonto4.jpg"];
+
+// Component per aggiungere nuovi prodotti
+const AdminProductForm = ({ onAddProduct }) => {
+  const [newProduct, setNewProduct] = useState({ name: '', price: '', images: [] });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    const imageUrls = files.map(file => URL.createObjectURL(file)); // Crea URL temporanei per le immagini caricate
+    setNewProduct({ ...newProduct, images: [...newProduct.images, ...imageUrls] });
+  };
+
+  const handleAddProduct = () => {
+    onAddProduct({
+      name: newProduct.name,
+      price: parseFloat(newProduct.price),
+      images: newProduct.images
+    });
+    setNewProduct({ name: '', price: '', images: [] });
+  };
+
+  return (
+    <div className="bg-white p-6 rounded shadow-lg">
+      <h3 className="text-2xl font-semibold mb-4">Aggiungi Nuovo Prodotto</h3>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2">Nome Prodotto</label>
+        <input
+          type="text"
+          name="name"
+          value={newProduct.name}
+          onChange={handleInputChange}
+          className="w-full px-3 py-2 border rounded"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2">Prezzo (€/Kg)</label>
+        <input
+          type="number"
+          name="price"
+          value={newProduct.price}
+          onChange={handleInputChange}
+          className="w-full px-3 py-2 border rounded"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2">Carica Immagini</label>
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={handleImageUpload}
+          className="w-full px-3 py-2 border rounded"
+        />
+        <div className="mt-4">
+          {newProduct.images.length > 0 && (
+            <div className="grid grid-cols-3 gap-2">
+              {newProduct.images.map((image, index) => (
+                <img key={index} src={image} alt={`Uploaded ${index}`} className="w-full h-auto rounded" />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+      <button onClick={handleAddProduct} className="bg-green-800 text-white px-4 py-2 rounded">Aggiungi Prodotto</button>
+    </div>
+  );
+};
+
 
 const ParcoLaCascinaWebsite = () => {
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([
+    { name: 'Zucchine', price: 4, images: ['images/zucchine.jpg','images/zucchine11.jpg'], },
+  { name: 'Peperoni', price: 5, images: ['images/peperoni.jpg', 'images/peperoni2.jpg','images/peperoni3.jpg'], },
+  { name: 'Friggitelli', price: 4.5, images: ['images/friggitelli.jpg'],},
+  { name: 'Melanzane', price: 4, images: ['images/melanzana_cassetta.jpg','images/melanzana_cassetta2.jpg','images/melanzana.jpg', 'images/melanzana5.jpg'] , },
+  { name: 'Pomodori Ciliegino', price: 6.5, images: ['images/pomodori_ciliegino3.jpg', 'images/pomodori_ciliegini5.jpg'], },
+  { name: 'Pomodori Datterino', price: 6.5, images: ['images/pomodori_datterino.jpg', ],  },
+  { name: 'Pomodori Cuore Di Bue', price: 5.5, images: ['images/pomodori_cuordibue.jpg', ],  },
+  { name: 'Cetrioli', price: 4, images: ['images/cetrioli.jpg',],  },
+  { name: 'Fagiolini', price: 4, images: ['images/fagiolini.jpg',], },
+  ]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [isAdmin] = useState(false); // Cambia a `false` se vuoi disabilitare la modalità amministrativa
 
+  const handleAddProduct = (newProduct) => {
+    setProducts([...products, newProduct]);
+  };
+
+  const handleDeleteProduct = (index) => {
+    const updatedProducts = products.filter((_, i) => i !== index);
+    setProducts(updatedProducts);
+  };
+
+/*  const handleUpdateProduct = (index, updatedProduct) => {
+    const updatedProducts = products.map((product, i) => i === index ? updatedProduct : product);
+    setProducts(updatedProducts);
+  };
+*/
   return (
     <div className="bg-green-900 min-h-screen">
       <Helmet>
@@ -272,49 +367,100 @@ const ParcoLaCascinaWebsite = () => {
         <meta property="og:url" content="https://www.parcolacascina.it" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+
       <Navbar />
       <main className="container mx-auto p-8">
-        {loading ? (
-          <div className="loading-skeleton" aria-label="Caricamento in corso">
-            <div className="skeleton-text"></div>
-            <div className="skeleton-image"></div>
+        <section className="mb-16">
+          <h1 className="text-4xl font-extrabold mb-6 text-yellow-500">Benvenuti a Parco La Cascina</h1>
+          <p className="text-2xl font-bold text-white mb-8">
+            Tre fratelli, un sogno verde: Un parco botanico dove la natura è protagonista! Coltiviamo ortaggi freschissimi nella nostra oasi verde.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 rounded-lg ">
+            <OptimizedCarousel className="carousel " images={["images/cascina2.jpg", "images/cascina.jpg", "images/cassoni_tramonto4.jpg"]} />
           </div>
-        ) : (
-          <>
-            <section className="mb-16">
-              <h1 className="text-4xl font-semibold mb-6 text-yellow-500">Benvenuti a Parco La Cascina</h1>
-              <p className="text-2xl text-white mb-8">
-              Tre fratelli, un sogno verde : <br></br>
-              Un parco botanico dove la natura è protagonista! Coltiviamo ortaggi freschissimi nella nostra oasi verde
-              </p>
-              <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
-                <OptimizedCarousel className="carousel"images={heroimages} />
-              </div>
-            </section>
+        </section>
+        <motion.section className="mb-16" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}>
+  <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Chi Siamo</h2>
+  <div className="flex flex-col md:flex-row items-center">
+    <div className="bg-white rounded-lg shadow-lg p-6 md:w-2/3 mb-8 md:mb-0"> {/* Contenitore per la foto e la descrizione */}
+      <div className="flex flex-col md:flex-row items-center">
+        <div className="md:w-1/2 mb-4 md:mb-0">
+          <img
+            src="images/fratelli.jpg"
+            alt="I fratelli Colombo"
+            className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 object-cover w-full"
+            style={{ height: '500px' }}
+          />
+        </div>
+        <div className="md:w-1/2 md:pl-6">
+          <p className="text-green-800 text-3xl font-extrabold leading-relaxed ">
+            Parco La Cascina è un progetto agroforestale biologico nato dal sogno di tre fratelli. Creiamo un parco botanico dove la natura è protagonista.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="pl-0 md:pl-32">
+      <video
+        src="images/reel_plc.mp4"
+        style={{ height: '500px' }}
+        controls
+        autoPlay
+        loop
+        muted
+        className="rounded-lg shadow-lg"
+      ></video>
+      <a 
+        href="https://instagram.com/parcolacascina" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="flex items-center text-yellow-100 hover:text-yellow-400 transition-colors pt-1"
+      >
+        <FaInstagram className="mr-2" />
+        @parcolacascina
+      </a>
+    </div>
+  </div>
+</motion.section>
 
-            <section id="gallery">
-              <h2 className="text-3xl font-semibold mb-6 text-yellow-500">I Nostri Prodotti Freschi</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {products.map((product, index) => (
-                  <article key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-lg">
-                    <OptimizedCarousel images={product.images} />
-                    <div className="p-6">
-                      <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
-                      </div>
-                      <p className="font-semibold mb-6 text-yellow-500">€{product.price.toFixed(2)}/Kg</p>
+
+
+
+
+        <section id="gallery">
+          <h2 className="text-3xl font-semibold mb-6 text-yellow-500">I Nostri Prodotti Freschi</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {products.map((product, index) => (
+              <article key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-lg">
+                <OptimizedCarousel images={product.images} />
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
+                  </div>
+                  <p className="font-semibold mb-6 text-yellow-500">€{product.price.toFixed(2)}/Kg</p>
+                  {isAdmin && (
+                    <div className="flex justify-between">
+                      <button className="bg-red-500 text-white px-3 py-1 rounded" onClick={() => handleDeleteProduct(index)}>Elimina</button>
                     </div>
-                  </article>
-                ))}
-              </div>
-            </section>
-          </>
-        )}
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
+
       <section id="orders" className="container mx-auto p-8">
         <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Ordina i Nostri Prodotti</h2>
         <OrderForm products={products} />
       </section>
+
+      {isAdmin && (
+        <section className="container mx-auto p-8">
+          <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Pannello Amministrazione Prodotti</h2>
+          <AdminProductForm onAddProduct={handleAddProduct} />
+        </section>
+      )}
+
       <Footer />
     </div>
   );
