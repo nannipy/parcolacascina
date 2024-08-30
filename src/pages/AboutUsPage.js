@@ -36,7 +36,6 @@ const AboutUsPage = () => {
         src="images/reel_plc.mp4"
         style={{ height: '500px' }}
         controls
-        autoPlay
         loop
         muted
         className="rounded-lg shadow-lg"
