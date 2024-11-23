@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import ProductsPage from './pages/ProductsPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactPage from './pages/ContactPage';
+import { Analytics } from "@vercel/analytics/react"
+
 
 const App = () => {
   return (
@@ -16,6 +18,7 @@ const App = () => {
           <Route path="/" element={<ProductsPage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Analytics />
         </Routes>
         <Footer />
       </div>
