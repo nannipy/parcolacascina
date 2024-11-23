@@ -35,14 +35,24 @@ const AboutUsPage = () => {
             </div>
           </div>
           <div className="pl-0 md:pl-32 w-full md:w-auto">
-            <div className="relative w-full md:w-96 h-96">
+            <div className="relative w-full md:w-96 h-96 max-w-full">
               <video
                 src="images/reel_plc.mp4"
                 controls
                 autoPlay
                 loop
                 muted
+                playsInline
+                webkit-playsinline="true"
+                x5-playsinline="true"
                 className="rounded-lg shadow-lg object-cover w-full h-full"
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'cover',
+                  WebkitOverflowScrolling: 'touch',
+                  overflow: 'hidden'
+                }}
               />
             </div>
             <a 
