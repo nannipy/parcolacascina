@@ -33,7 +33,7 @@ const ProductsPage = () => {
         </section>
       <Helmet>
         <title>Prodotti Freschi - Parco La Cascina</title>
-        <meta name="description" content="Scopri e ordina i nostri prodotti freschi: Zucchine, Peperoni, Melanzane e altro ancora." />
+        <meta name="description" content="Scopri e ordina  i nostri prodotti freschi: Zucchine, Peperoni, Melanzane e altro ancora." />
       </Helmet>
       <h1 id="orders" className="text-4xl font-extrabold mb-6 text-yellow-500">I Nostri Prodotti Freschi</h1>
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
