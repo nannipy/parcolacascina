@@ -27,7 +27,7 @@ const ProductsPage = () => {
           <p className="text-2xl font-bold text-white mb-8">
             Tre fratelli, un sogno verde: Un parco botanico dove la natura è protagonista! Coltiviamo ortaggi freschissimi nella nostra oasi verde.
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 rounded-lg ">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 ">
             <OptimizedCarousel className="carousel " images={["images/cascina2.jpg", "images/cascina.jpg", "images/cassoni_tramonto4.jpg"]} />
           </div>
         </section>
