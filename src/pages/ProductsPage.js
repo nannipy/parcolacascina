@@ -38,7 +38,7 @@ const ProductsPage = () => {
       <h1 id="orders" className="text-4xl font-extrabold mb-6 text-yellow-500">I Nostri Prodotti Freschi</h1>
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
         {products.map((product, index) => (
-          <article key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-lg">
+          <article key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden rounded-3xl">
             <OptimizedCarousel images={product.images} />
             <div className="p-6">
               <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
