@@ -89,7 +89,7 @@ const OrderForm = () => {
   };
   
   return (
-    <form className="bg-white p-8 rounded-lg shadow-l " onSubmit={handleSubmit}>
+    <form className="bg-white p-8 rounded-3xl shadow-l " onSubmit={handleSubmit}>
         <Helmet>
           <title>Ordina Prodotti - Parco La Cascina</title>
           <meta name="description" content="Ordina prodotti freschi come Zucchine, Peperoni, Melanzane e altro da Parco La Cascina. Compila il modulo per inviare il tuo ordine." />
@@ -103,7 +103,7 @@ const OrderForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border rounded-2xl"
                 required
             />
         </div>
@@ -115,7 +115,7 @@ const OrderForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border rounded-2xl"
                 required
             />
         </div>
@@ -127,7 +127,7 @@ const OrderForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border rounded-2xl"
                 required
             />
         </div>
@@ -138,7 +138,7 @@ const OrderForm = () => {
                 name="product"
                 value={selectedProduct}
                 onChange={(e) => setSelectedProduct(e.target.value)}
-                className="w-full px-3 py-2 border rounded mb-2 appearance-none"
+                className="w-full px-3 py-2 border rounded-2xl mb-2 appearance-none"
             >
                 <option value="">Seleziona un prodotto</option>
                 {products.map((product, index) => (
@@ -152,12 +152,12 @@ const OrderForm = () => {
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
                 placeholder="Quantità (Kg)"
-                className="w-full px-3 py-2 border rounded mb-2"
+                className="w-full px-3 py-2 border rounded-2xl mb-2"
             />
             <button
                 type="button"
                 onClick={handleAddProduct}
-                className="bg-green-800 text-white px-3 py-2 rounded appearance-none"
+                className="bg-green-800 text-white px-3 py-2 rounded-2xl appearance-none"
             >
                 Aggiungi Prodotto
             </button>
@@ -171,7 +171,7 @@ const OrderForm = () => {
                         <button
                             type="button"
                             onClick={() => handleRemoveProduct(index)}
-                            className="bg-red-500 text-white px-3 py-1 rounded"
+                            className="bg-red-500 text-white px-3 py-1 rounded-2xl"
                             >
                             Rimuovi
                         </button>
@@ -179,10 +179,10 @@ const OrderForm = () => {
                 ))}
             </ul>
         </div>
-        <button onClick={handleSubmit} type="submit" className="bg-yellow-500 text-white px-3 py-2 rounded ">Invia Ordine</button>
+        <button onClick={handleSubmit} type="submit" className="bg-yellow-500 text-white px-3 py-2 rounded-2xl ">Invia Ordine</button>
         <div className='pb-4'></div>
         {orderStatus && (
-            <div className={`p-4 mb-4 text-white ${orderStatus === 'success' ? 'bg-green-500' : 'bg-red-500'} rounded `}>
+            <div className={`p-4 mb-4 text-white ${orderStatus === 'success' ? 'bg-green-500' : 'bg-red-500'} rounded-2xl `}>
                 {orderStatusMessage}
             </div>
         )}

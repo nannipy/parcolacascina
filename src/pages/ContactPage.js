@@ -10,7 +10,7 @@ const ContactPage = () => {
         <meta name="description" content="Contattaci per informazioni sui nostri prodotti o per organizzare una visita a Parco La Cascina." />
       </Helmet>
       <h1 className="text-4xl font-extrabold mb-6 text-yellow-500">Contattaci</h1>
-      <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+      <div className="bg-white rounded-3xl shadow-lg p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-semibold mb-4 text-green-800">Informazioni di Contatto</h2>
@@ -39,13 +39,13 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-lg shadow-lg p-6 overflow-hidden">
+      <div className="bg-white rounded-3xl shadow-lg p-6 overflow-hidden">
         <h2 className="text-2xl font-semibold mb-4 text-green-800">La nostra posizione</h2>
         <div className="relative w-full h-0 pb-[40%]">
           <iframe 
             title="Parco La Cascina Map"
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d695.4608048163985!2d8.7488587!3d45.7943686!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47867c1f1be44223%3A0xe5f5c2833e0db7dd!2sVia%20dei%20Canneti%2C%201%2C%2021020%20Bodio%20Lomnago%20VA!5e0!3m2!1sit!2sit!4v1725029984811!5m2!1sit!2sit" 
-            className="absolute top-0 left-0 w-full h-full border-0 rounded-lg"
+            className="absolute top-0 left-0 w-full h-full border-0 rounded-3xl"
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -54,22 +54,22 @@ const ContactPage = () => {
       <p>
       <br></br>
       </p>
-      <div className="bg-white rounded-lg shadow-lg p-6 mb-8 ">
+      <div className="bg-white rounded-3xl shadow-lg p-6 mb-8 ">
         <h2 className="text-2xl font-semibold mb-4 text-green-800">Inviaci un Messaggio</h2>
         <form>
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2" htmlFor="name">Nome</label>
-            <input type="text" id="name" name="name" className="w-full px-3 py-2 border rounded" required />
+            <input type="text" id="name" name="name" className="w-full px-3 py-2 border rounded-xl" required />
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2" htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded" required />
+            <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded-xl" required />
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2" htmlFor="message">Messaggio</label>
-            <textarea id="message" name="message" rows="4" className="w-full px-3 py-2 border rounded" required></textarea>
+            <textarea id="message" name="message" rows="4" className="w-full px-3 py-2 border rounded-xl" required></textarea>
           </div>
-          <button type="submit" className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors">Invia Messaggio</button>
+          <button type="submit" className="bg-yellow-500 text-white px-4 py-2 rounded-xl hover:bg-yellow-600 transition-colors">Invia Messaggio</button>
         </form>
       </div>
      

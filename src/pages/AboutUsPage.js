@@ -18,7 +18,7 @@ const AboutUsPage = () => {
       >
         <h2 className="text-3xl font-semibold mb-6 text-yellow-500">Chi Siamo</h2>
         <div className="flex flex-col md:flex-row items-center">
-          <div className="bg-white rounded-lg shadow-lg p-6 md:w-2/3 mb-8 md:mb-0">
+          <div className="bg-white rounded-3xl shadow-lg p-6 md:w-2/3 mb-8 md:mb-0">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 mb-4 md:mb-0">
                 <img
@@ -45,7 +45,7 @@ const AboutUsPage = () => {
                 playsInline
                 webkit-playsinline="true"
                 x5-playsinline="true"
-                className="rounded-lg shadow-lg object-cover w-full h-full"
+                className="rounded-3xl shadow-lg object-cover w-full h-full"
                 style={{
                   maxWidth: '100%',
                   maxHeight: '100%',

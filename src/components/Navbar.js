@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white text-yellow-400 p-4 sticky top-0 z-10">
+    <nav className="bg-white text-yellow-400 p-4 sticky top-0 z-10 ">
       <div className="container mx-auto flex justify-between items-center">
         <a href="/">
           <div className="flex items-center">
