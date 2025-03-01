@@ -1,70 +1,165 @@
-# Getting Started with Create React App
+<div align="center">
+  <img src="public/logo.png" alt="Parco La Cascina Logo" width="200"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  # 🌿 Parco La Cascina Website
 
-## Available Scripts
+  [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+  [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 
-In the project directory, you can run:
+  <p align="center">
+    A modern React.js website showcasing fresh agricultural products from our botanical park 🌱
+    <br />
+    <a href="https://parcolacascina.vercel.app"><strong>Visit Website »</strong></a>
+    <br />
+    <br />
+    <a href="#demo">View Demo</a>
+    ·
+    <a href="https://github.com/nannipy/parcolacascina/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/nannipy/parcolacascina/issues">Request Feature</a>
+  </p>
+</div>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<details>
+<summary>Click to expand features</summary>
 
-### `npm test`
+🎨 **Modern UI/UX**
+- Responsive design for all devices
+- Smooth animations and transitions
+- Interactive image carousel
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🛒 **E-commerce Features**
+- Product showcase
+- Online ordering system
+- Email integration for order processing
 
-### `npm run build`
+📱 **User Experience**
+- Fast loading times
+- Intuitive navigation
+- Contact form integration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+<summary>Click to expand tech stack</summary>
 
-### `npm run eject`
+| Technology | Purpose |
+|------------|---------|
+| [React.js](https://reactjs.org/) | Frontend framework |
+| [Tailwind CSS](https://tailwindcss.com/) | Styling |
+| [React Router](https://reactrouter.com/) | Navigation |
+| [EmailJS](https://www.emailjs.com/) | Email service |
+| [Framer Motion](https://www.framer.com/motion/) | Animations |
+| [React Icons](https://react-icons.github.io/react-icons/) | Icons |
+| [Vercel Analytics](https://vercel.com/analytics) | Analytics |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+</details>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🏗️ Quick Start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<details>
+<summary>Click to see setup instructions</summary>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+```bash
+node -v  # Must be ≥ 14.0.0
+npm -v   # Must be ≥ 6.0.0
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1️⃣ Clone the repository
+```bash
+git clone https://github.com/nannipy/parcolacascina.git
+```
 
-### Code Splitting
+2️⃣ Install dependencies
+```bash
+cd parcolacascina
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3️⃣ Set up environment variables
+```bash
+cp .env.example .env
+# Edit .env with your EmailJS credentials
+```
 
-### Analyzing the Bundle Size
+4️⃣ Start development server
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+</details>
 
-### Making a Progressive Web App
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<details>
+<summary>Click to see how to contribute</summary>
 
-### Advanced Configuration
+We love contributions! Here's how you can help:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```mermaid
+graph LR
+    A[Fork] --> B[Create Branch]
+    B --> C[Make Changes]
+    C --> D[Create PR]
+    D --> E[Get Reviewed]
+    E --> F[Merge!]
+```
 
-### Deployment
+Check our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+</details>
 
-### `npm run build` fails to minify
+## 🎯 Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<details>
+<summary>Click to see our future plans</summary>
+
+- [ ] Product inventory management
+- [ ] User authentication
+- [ ] Multi-language support
+- [ ] Shopping cart functionality
+- [ ] Product categories
+- [ ] Enhanced SEO
+- [ ] Automated testing
+- [ ] Mobile app version
+
+</details>
+
+## 📞 Connect With Us
+
+<div align="center">
+
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/parcolacascina)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:parcolacascina@gmail.com)
+[![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://parcolacascina.vercel.app)
+
+</div>
+
+## 💖 Support Us
+
+If you find this project helpful, please consider:
+- Giving it a ⭐️ on GitHub
+- Sharing it with friends
+- Following us on social media
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+  Made with 💚 by the Parco La Cascina Team
+</div>
